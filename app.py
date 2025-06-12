@@ -29,7 +29,7 @@ def main():
         
         # 金額入力
         jpy_amount = st.sidebar.number_input(
-            "日本円金額",
+            "投資する日本円 (円)",
             min_value=0.0,
             value=1000.0,
             step=100.0,
@@ -48,27 +48,27 @@ def main():
         #利息が適用される年数の入力
         years = st.sidebar.number_input(
             "利息が適用される年数",
-            min_value=0.0,
-            max_value=100.0,
-            value=1.0,
-            step=1.0,
+            min_value=0,
+            max_value=100,
+            value=1,
+            step=1,
             help="年数を入力してください"
         )
         # 為替レート入力
         st.sidebar.subheader("為替レート設定")
         e1_rate = st.sidebar.number_input(
             "E1（円からドルへの換算レート）",
-            min_value=0.0,
-            value=110.0,
-            step=10.0,
+            min_value=0,
+            value=110,
+            step=10,
             help="1ドルあたりの円レート"
         )
         
         e2_rate = st.sidebar.number_input(
             "E2（ドルから円への換算レート）",
-            min_value=0.0,
-            value=110.0,
-            step=10.0,
+            min_value=0,
+            value=110,
+            step=10,
             help="1ドルあたりの円レート"
         )
         # 計算結果の表示
