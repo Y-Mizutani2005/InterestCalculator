@@ -16,7 +16,7 @@ def main():
         help="変換したい日本円の金額を入力してください"
     )
 
-        # 利率入力
+    # 年間利率入力
     interest_rate = st.sidebar.number_input(
         "利率 i (%)",
         min_value=0.0,
@@ -25,7 +25,15 @@ def main():
         step=1.0,
         help="利率をパーセントで入力してください"
     )
-    
+    #利息が適用される年数の入力
+    years = st.sidebar.number_input(
+        "利息が適用される年数",
+        min_value=0.0,
+        max_value=100.0,
+        value=1.0,
+        step=1.0,
+        help="年数を入力してください"
+    )
     # 為替レート入力
     st.sidebar.subheader("為替レート設定")
     e1_rate = st.sidebar.number_input(
@@ -44,14 +52,12 @@ def main():
         help="1ドルあたりの円レート"
     )
     
-
-    
     # 計算結果の表示
     st.header("計算結果")
     
     # (日本円*(1/E1))iの計算
     dollar_amount = jpy_amount * (1/e1_rate)  # 円をドルに換算
-    result = (dollar_amount * (1 + interest_rate/100))*e2_rate  # 利率を適用
+    result = (dollar_amount * (1 + interest_rate/100)** years )*e2_rate  # 利率を適用
     roundresult = np.round(result, 2)  # 小数点以下2桁に丸める
     st.success(roundresult)
 
