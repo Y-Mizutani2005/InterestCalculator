@@ -2,7 +2,7 @@ import streamlit as st
 import numpy as np
 
 def main():
-    st.title("外貨レート変換アプリケーション")
+    st.title("外貨利息計算機")
     
     # サイドバーでの入力欄
     st.sidebar.header("入力パラメータ")
@@ -14,6 +14,16 @@ def main():
         value=1000.0,
         step=100.0,
         help="変換したい日本円の金額を入力してください"
+    )
+
+        # 利率入力
+    interest_rate = st.sidebar.number_input(
+        "利率 i (%)",
+        min_value=0.0,
+        max_value=100.0,
+        value=10.0,
+        step=1.0,
+        help="利率をパーセントで入力してください"
     )
     
     # 為替レート入力
@@ -34,15 +44,7 @@ def main():
         help="1ドルあたりの円レート"
     )
     
-    # 利率入力
-    interest_rate = st.sidebar.number_input(
-        "利率 i (%)",
-        min_value=0.0,
-        max_value=100.0,
-        value=10.0,
-        step=1.0,
-        help="利率をパーセントで入力してください"
-    )
+
     
     # 計算結果の表示
     st.header("計算結果")
