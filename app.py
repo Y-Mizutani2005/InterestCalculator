@@ -18,7 +18,7 @@ def main():
 
     # 年間利率入力
     interest_rate = st.sidebar.number_input(
-        "利率 i (%)",
+        "年利 i (%)",
         min_value=0.0,
         max_value=100.0,
         value=10.0,
