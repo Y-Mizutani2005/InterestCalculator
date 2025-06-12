@@ -31,8 +31,8 @@ def main():
         jpy_amount = st.sidebar.number_input(
             "投資する日本円 (円)",
             min_value=0.0,
-            value=1000.0,
-            step=100.0,
+            value=1000,
+            step=100,
             help="変換したい日本円の金額を入力してください"
         )
 
